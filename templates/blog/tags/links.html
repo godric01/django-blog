@@ -1,7 +1,7 @@
 {% if links %}
 <ul class="innerul">
 {% for link in links %}
-    <li><a href="{{link.get_absolute_url}}" title="{{link.link_desc}}">{{link.link_title}}</a></li>
+    <li><a href="{{link.get_absolute_url}}" title="{{link.link_desc}}" target="_blank">{{link.link_title}}</a></li>
 {% endfor %}
 </ul>
 {% else %}

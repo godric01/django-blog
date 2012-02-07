@@ -439,6 +439,10 @@ msgstr "评论这篇文章"
 msgid "Submit Comment"
 msgstr "发表评论"
 
+#: .\templates\blog\comment_form.html.py:13
+msgid "Comment Help"
+msgstr "必填"
+
 #: .\templates\blog\tags\archivelist.html.py:9
 msgid "No Archive Now"
 msgstr "暂时没有存档"

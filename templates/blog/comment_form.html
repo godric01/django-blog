@@ -10,13 +10,13 @@ var url = '{%url post_comment postid=post.id %}';
 <form method="post" action="" name="comment-form">
 <div class="form-row" >
 {% if form.comment_author.errors %}<span class="error">{{ form.comment_author.errors|join:", " }}</span>{% endif %}
-  <label for="id_comment_author" class="required">{% trans "Author" %}:</label>
+  <label for="id_comment_author" class="required">{% trans "Author" %}:({% trans "Comment Help" %})</label>
   
   {{form.comment_author}}
 </div>
 <div class="form-row" >
 {% if form.comment_author_email.errors %}<span class="error">{{ form.comment_author_email.errors|join:", " }}</span>{% endif %}
-  <label for="id_comment_author_email" class="required">{% trans "Email" %}:</label>   
+  <label for="id_comment_author_email" class="required">{% trans "Email" %}:({% trans "Comment Help" %})</label>   
   {{form.comment_author_email}}
   
 </div>
@@ -28,7 +28,7 @@ var url = '{%url post_comment postid=post.id %}';
 </div>
 <div class="form-row" >
 {% if form.comment_content.errors %}<span class="error">{{ form.comment_content.errors|join:", " }}</span>{% endif %}
-  <label for="id_comment_content" class="required">{% trans "Content" %}:</label> 
+  <label for="id_comment_content" class="required">{% trans "Content" %}:({% trans "Comment Help" %})</label> 
   {{form.comment_content}}
 </div>
 <div>

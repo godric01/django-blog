@@ -51,7 +51,7 @@
            <li class="{% cycle alt1,alt2,alt3 %}">
             <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>
             {% else %}{{cmt.comment_author}}
-            {% endif %}</strong> <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>        
+            {% endif %}({{ cmt.comment_author_IP }})</strong> <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>        
            <br/>
           {{cmt.comment_content|linebreaks }}     
            </li>
