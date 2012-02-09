@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404,get_list_or_404,render_to_respons
 from django.contrib.admin.views.decorators import staff_member_required
 
 def index(request):
-    '''todo homepage'''    
+    '''todo homepage   
     is_auth = request.user.is_authenticated()
     #not completed projects
     if is_auth:        
@@ -19,14 +19,15 @@ def index(request):
         com_proj = Project.objects.extra(where=['project_tasks > 0 and project_tasks = project_completed '])
     else:
         com_proj = Project.objects.extra(where=['(project_tasks > 0 and project_tasks = project_completed)  and project_type=%s'], params=[PROJECT_TYPE['public']])
-        
+    '''
+    projects = Project.objects.all()
+    
     return render_to_response('todo/index.html',
                               {'projects':projects,
-                            'completed_projects':com_proj,
-                            'is_authenticated':is_auth,
                             'tab':'todo'})
     #return HttpResponse('this a test task page')
-    
+
+"""
 @staff_member_required    
 def task_add(request):
     '''add task to project'''    
@@ -116,3 +117,4 @@ def task_del(request):
     task.task_project.save()
     task.delete()
     return HttpResponse('success')
+"""

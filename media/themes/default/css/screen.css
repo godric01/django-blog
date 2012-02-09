@@ -10,7 +10,7 @@ BODY {
 }
 #content {
 	FLOAT: left; 	
-	margin-top:43px;
+	margin-top:6px;
 	margin-right:-200px;
 	
 	margin-bottom:8px;
@@ -79,12 +79,13 @@ A {
 	WIDTH: 520px; 
 	PADDING-TOP: 10px;
 	overflow:hidden;
+	MARGIN-TOP:16px;
 }
 #blogText UL LI {
-	PADDING-RIGHT: 30px; PADDING-LEFT: 14px; BACKGROUND: url(../images/bullet-green.gif) no-repeat 0px 11px; PADDING-BOTTOM: 4px; LINE-HEIGHT: 1.6em; PADDING-TOP: 4px; LIST-STYLE-TYPE: none
+	PADDING-RIGHT: 30px; PADDING-LEFT: 14px; PADDING-BOTTOM: 4px; LINE-HEIGHT: 1.6em; PADDING-TOP: 4px; LIST-STYLE-TYPE: none
 }
 #blogText UL {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 40px; PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-TOP: 2px
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-TOP: 2px; color: #1C5A8F;
 }
 #blogText .hlinfo UL LI {
 	PADDING-RIGHT: 0px; PADDING-LEFT: 25px; BACKGROUND: url(images/bullet-checkmark.gif) no-repeat 0px 6px; PADDING-BOTTOM: 6px; LINE-HEIGHT: normal; PADDING-TOP: 6px; LIST-STYLE-TYPE: none

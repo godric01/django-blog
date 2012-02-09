@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Pylogs 1.12\n"
+"Project-Id-Version: Pyblogs 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 09:51+0800\n"
 "PO-Revision-Date: 2010-04-27 09:55+0800\n"
@@ -421,11 +421,11 @@ msgstr "对不起，创建目录失败！"
 
 #: .\templates\admin\base_site.html.py:3
 msgid "Pylogs site admin"
-msgstr "Pylogs 站点管理"
+msgstr "技术大讲堂博客站点管理"
 
 #: .\templates\admin\base_site.html.py:5
 msgid "Pylogs administration"
-msgstr "Pylogs管理"
+msgstr "技术大讲堂博客管理"
 
 #: .\templates\blog\comment_form.html.py:3
 msgid "Please correct the errors below"
@@ -459,7 +459,7 @@ msgstr "暂时没有链接"
 #: .\templates\blog\tags\menu.html.py:3
 #: .\templates\themes\naver\blog\tags\menu.html.py:4
 msgid "Todo"
-msgstr "Todo"
+msgstr "培训计划"
 
 #: .\templates\blog\tags\recent_posts.html.py:7
 #: .\templates\blog\tags\related_posts.html.py:7
@@ -561,7 +561,7 @@ msgstr "聚合"
 
 #: .\templates\themes\default\base.html.py:116
 msgid "Pylogs Project"
-msgstr "Pylogs 项目"
+msgstr "项目"
 
 #: .\templates\themes\default\base.html.py:119
 msgid "Contact Me"
@@ -582,7 +582,7 @@ msgstr "热门文章"
 
 #: .\templates\todo\index.html.py:11
 msgid "Projects in progress"
-msgstr "进行中的项目"
+msgstr "即将进行的培训"
 
 #: .\templates\todo\index.html.py:14
 #: .\templates\todo\index.html.py:57
@@ -631,11 +631,11 @@ msgstr "添加新项目"
 
 #: .\templates\todo\index.html.py:52
 msgid "Completed Projects"
-msgstr "完成的项目"
+msgstr "完成的培训"
 
 #: .\templates\todo\index.html.py:71
 msgid "No project is completed!"
-msgstr "没有已完成的项目"
+msgstr "没有已完成的培训"
 
 #: .\templates\wap\list.html.py:8
 msgid "Prev"
@@ -652,12 +652,12 @@ msgstr "暂时没有文章"
 
 #: .\todo\models.py:18
 msgid "Project Name"
-msgstr "项目名称"
+msgstr "培训名称"
 
 #: .\todo\models.py:19
 #: .\todo\models.py:41
 msgid "Created Date"
-msgstr "建立日期"
+msgstr "计划日期"
 
 #: .\todo\models.py:20
 #: .\todo\models.py:42
@@ -666,58 +666,58 @@ msgstr "最后更新日期"
 
 #: .\todo\models.py:21
 msgid "Project type"
-msgstr "项目类别"
+msgstr "培训类别"
 
 #: .\todo\models.py:22
 msgid "Project Description"
-msgstr "项目描述"
+msgstr "培训描述"
 
 #: .\todo\models.py:23
 msgid "Project task count"
-msgstr "项目任务数"
+msgstr "培训计划数"
 
 #: .\todo\models.py:24
 msgid "Completed task count"
-msgstr "完成的任务数"
+msgstr "完成的计划数"
 
 #: .\todo\models.py:25
 msgid "Project slug"
-msgstr "项目别名"
+msgstr "培训别名"
 
 #: .\todo\models.py:31
 msgid "Todo Project"
-msgstr "Todo项目"
+msgstr "培训项目"
 
 #: .\todo\models.py:32
 msgid "Todo Projects"
-msgstr "Todo项目"
+msgstr "培训项目"
 
 #: .\todo\models.py:39
 msgid "Task Name"
-msgstr "项目名称"
+msgstr "计划名称"
 
 #: .\todo\models.py:40
 msgid "Task Project"
-msgstr "任务所在项目"
+msgstr "计划所在培训项目"
 
 #: .\todo\models.py:43
 msgid "Task Priority"
-msgstr "任务优先级"
+msgstr "计划优先级"
 
 #: .\todo\models.py:44
 msgid "Is task completed"
-msgstr "任务完成状态"
+msgstr "计划完成状态"
 
 #: .\todo\models.py:51
 msgid "Todo Task"
-msgstr "Todo任务"
+msgstr "培训计划"
 
 #: .\todo\models.py:52
 msgid "Todo Tasks"
-msgstr "Todo任务"
+msgstr "培训计划"
 
 #~ msgid "Pylogs: Latest Posts"
-#~ msgstr "Pylogs:最新文章"
+#~ msgstr "博客:最新文章"
 
 #~ msgid "logging your life..."
 #~ msgstr "logging your life..."

@@ -34,16 +34,8 @@ urlpatterns += patterns('',
     url(r'wap','wap.views.index',name='wap_pre'),
 )
 
-# url for todo
-urlpatterns += patterns('todo.views',
-    url(r'^todo/$','index',name='todo'),
-    (r'^todo/task/add/', 'task_add'),
-    (r'^todo/task/done/','task_done'),
-    (r'^todo/task/undone/','task_undone'),
-    (r'^todo/task/delete/','task_del'),
-    (r'^todo/project/add/', 'project_add'),
-    (r'^todo/project/delete/', 'project_del'),
-    (r'^todo/project/change_type/', 'project_chg_type'),                        
+urlpatterns += patterns('',
+    (r'^todo/*', include('todo.urls'))
 )
 
 # url for filemanager
