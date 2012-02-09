@@ -1,6 +1,6 @@
 {% load i18n themes filters %}
 {% theme_extends "base.html" %}
-{% block title %}{%trans "Todo"%} - {{ block.super }} {% endblock %}
+{% block title %}{%trans "Train"%} - {{ block.super }} {% endblock %}
 {% block script %}
 <script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
 <script language="javascript" type="text/javascript" src="{%media_url%}/js/todo.js" ></script>
@@ -12,7 +12,7 @@
             <li><h2>{{p.project_name}}</h2>    
                 <ul class="todo_tasks">
                     {% for t in p.task_set.all %}
-                        <li>--&nbsp;&nbsp;{{t.task_name}}&nbsp;&nbsp;({{t.task_created|date:"Y-m-d H:i"}}){% ifequal t.task_completed 1%}&nbsp;&nbsp;(已结束){% else %}{% endifequal%}    
+                        <li>--&nbsp;&nbsp;{{t.task_name}}{% if t.task_speaker %}&nbsp;{% trans "Task Speaker" %}:{{t.task_speaker}}{% endif %}{% ifequal t.task_completed 1%}&nbsp;&nbsp;(已结束){% else %}{% if t.task_created %}&nbsp;&nbsp;({{t.task_created|date:"Y-m-d H:i"}}){% endif %}{% endifequal%}    
                         </li>                
                     {% endfor %}
                 </ul>

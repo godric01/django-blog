@@ -35,7 +35,7 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
-    (r'^todo/*', include('todo.urls'))
+    (r'^train/*', include('train.urls'))
 )
 
 # url for filemanager

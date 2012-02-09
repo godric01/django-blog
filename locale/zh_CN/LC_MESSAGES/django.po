@@ -458,7 +458,7 @@ msgstr "暂时没有链接"
 
 #: .\templates\blog\tags\menu.html.py:3
 #: .\templates\themes\naver\blog\tags\menu.html.py:4
-msgid "Todo"
+msgid "Train"
 msgstr "培训计划"
 
 #: .\templates\blog\tags\recent_posts.html.py:7
@@ -685,11 +685,11 @@ msgid "Project slug"
 msgstr "培训别名"
 
 #: .\todo\models.py:31
-msgid "Todo Project"
+msgid "Train Project"
 msgstr "培训项目"
 
 #: .\todo\models.py:32
-msgid "Todo Projects"
+msgid "Train Projects"
 msgstr "培训项目"
 
 #: .\todo\models.py:39
@@ -700,6 +700,9 @@ msgstr "计划名称"
 msgid "Task Project"
 msgstr "计划所在培训项目"
 
+msgid "Task Speaker"
+msgstr "主讲人"
+
 #: .\todo\models.py:43
 msgid "Task Priority"
 msgstr "计划优先级"
@@ -709,11 +712,11 @@ msgid "Is task completed"
 msgstr "计划完成状态"
 
 #: .\todo\models.py:51
-msgid "Todo Task"
+msgid "Train Task"
 msgstr "培训计划"
 
 #: .\todo\models.py:52
-msgid "Todo Tasks"
+msgid "Train Tasks"
 msgstr "培训计划"
 
 #~ msgid "Pylogs: Latest Posts"

@@ -6,7 +6,7 @@ TEMPLATE_DEBUG = DEBUG
 #DEBUG_RPC = True
 
 DATABASE_ENGINE = 'sqlite3' 
-DATABASE_NAME = './data.db'
+DATABASE_NAME = path.join(path.dirname(__file__),'db/blogs.db') #'./db/blog.db'
 
 TIME_ZONE = 'Asia/Shanghai'
 LANGUAGE_CODE = 'zh-CN'
@@ -21,7 +21,7 @@ ALLOW_FILE_TYPES = ('.jpg','.gif','.png','.flv')
 # URL that handles the media served from MEDIA_URL.
 MEDIA_URL = '/media'
 
-STATIC_PATH = './media'
+STATIC_PATH = path.join(path.dirname(__file__),'media') #'./media'
 
 ADMIN_MEDIA_PREFIX = '/admin_media/'
 
@@ -61,9 +61,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'blog',
-    'todo',
+    'train',
     'filemanager',
     'wap', 
+    'django_evolution',
 )
-VERSION = (1, 16, 'beta')	
-
