@@ -62,6 +62,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'blog',
     'train',
+    'tea',
     'filemanager',
     'wap', 
     'django_evolution',

@@ -461,6 +461,9 @@ msgstr "暂时没有链接"
 msgid "Train"
 msgstr "培训计划"
 
+msgid "Tea"
+msgstr "技术茶歇"
+
 #: .\templates\blog\tags\recent_posts.html.py:7
 #: .\templates\blog\tags\related_posts.html.py:7
 msgid "No post now"
@@ -580,60 +583,60 @@ msgstr "最新评论"
 msgid "Popular Posts"
 msgstr "热门文章"
 
-#: .\templates\todo\index.html.py:11
+#: .\templates\train\index.html.py:11
 msgid "Projects in progress"
 msgstr "即将进行的培训"
 
-#: .\templates\todo\index.html.py:14
-#: .\templates\todo\index.html.py:57
+#: .\templates\train\index.html.py:14
+#: .\templates\train\index.html.py:57
 msgid "Created at"
 msgstr "创建于"
 
-#: .\templates\todo\index.html.py:15
-#: .\templates\todo\index.html.py:58
+#: .\templates\train\index.html.py:15
+#: .\templates\train\index.html.py:58
 msgid "Public Project"
 msgstr "公共项目"
 
-#: .\templates\todo\index.html.py:15
-#: .\templates\todo\index.html.py:44
-#: .\templates\todo\index.html.py:58
+#: .\templates\train\index.html.py:15
+#: .\templates\train\index.html.py:44
+#: .\templates\train\index.html.py:58
 msgid "Private Project"
 msgstr "私有项目"
 
-#: .\templates\todo\index.html.py:19
+#: .\templates\train\index.html.py:19
 msgid "This task is completed."
 msgstr "这个任务已完成"
 
-#: .\templates\todo\index.html.py:19
-#: .\templates\todo\index.html.py:28
+#: .\templates\train\index.html.py:19
+#: .\templates\train\index.html.py:28
 msgid "Priority"
 msgstr "优先级"
 
-#: .\templates\todo\index.html.py:25
+#: .\templates\train\index.html.py:25
 msgid "Add New Task"
 msgstr "添加新任务"
 
-#: .\templates\todo\index.html.py:29
+#: .\templates\train\index.html.py:29
 msgid "low"
 msgstr "低"
 
-#: .\templates\todo\index.html.py:30
+#: .\templates\train\index.html.py:30
 msgid "medium"
 msgstr "中"
 
-#: .\templates\todo\index.html.py:31
+#: .\templates\train\index.html.py:31
 msgid "high"
 msgstr "高"
 
-#: .\templates\todo\index.html.py:42
+#: .\templates\train\index.html.py:42
 msgid "Add New Project"
 msgstr "添加新项目"
 
-#: .\templates\todo\index.html.py:52
+#: .\templates\train\index.html.py:52
 msgid "Completed Projects"
 msgstr "完成的培训"
 
-#: .\templates\todo\index.html.py:71
+#: .\templates\train\index.html.py:71
 msgid "No project is completed!"
 msgstr "没有已完成的培训"
 
@@ -650,72 +653,72 @@ msgstr "下一页"
 msgid "No related post now"
 msgstr "暂时没有文章"
 
-#: .\todo\models.py:18
+#: .\train\models.py:18
 msgid "Project Name"
 msgstr "培训名称"
 
-#: .\todo\models.py:19
-#: .\todo\models.py:41
+#: .\train\models.py:19
+#: .\train\models.py:41
 msgid "Created Date"
 msgstr "计划日期"
 
-#: .\todo\models.py:20
-#: .\todo\models.py:42
+#: .\train\models.py:20
+#: .\train\models.py:42
 msgid "LastUpdated Date"
 msgstr "最后更新日期"
 
-#: .\todo\models.py:21
+#: .\train\models.py:21
 msgid "Project type"
 msgstr "培训类别"
 
-#: .\todo\models.py:22
+#: .\train\models.py:22
 msgid "Project Description"
 msgstr "培训描述"
 
-#: .\todo\models.py:23
+#: .\train\models.py:23
 msgid "Project task count"
 msgstr "培训计划数"
 
-#: .\todo\models.py:24
+#: .\train\models.py:24
 msgid "Completed task count"
 msgstr "完成的计划数"
 
-#: .\todo\models.py:25
+#: .\train\models.py:25
 msgid "Project slug"
 msgstr "培训别名"
 
-#: .\todo\models.py:31
+#: .\train\models.py:31
 msgid "Train Project"
 msgstr "培训项目"
 
-#: .\todo\models.py:32
+#: .\train\models.py:32
 msgid "Train Projects"
 msgstr "培训项目"
 
-#: .\todo\models.py:39
+#: .\train\models.py:39
 msgid "Task Name"
 msgstr "计划名称"
 
-#: .\todo\models.py:40
+#: .\train\models.py:40
 msgid "Task Project"
 msgstr "计划所在培训项目"
 
 msgid "Task Speaker"
 msgstr "主讲人"
 
-#: .\todo\models.py:43
+#: .\train\models.py:43
 msgid "Task Priority"
 msgstr "计划优先级"
 
-#: .\todo\models.py:44
+#: .\train\models.py:44
 msgid "Is task completed"
 msgstr "计划完成状态"
 
-#: .\todo\models.py:51
+#: .\train\models.py:51
 msgid "Train Task"
 msgstr "培训计划"
 
-#: .\todo\models.py:52
+#: .\train\models.py:52
 msgid "Train Tasks"
 msgstr "培训计划"
 
@@ -727,3 +730,40 @@ msgstr "培训计划"
 
 #~ msgid "File type is not allowed!"
 #~ msgstr "不允许的文件类型！"
+
+#: .\tea\models.py
+msgid "Topic Name"
+msgstr "主题"
+
+msgid "Topic Publisher"
+msgstr "发布者"
+
+msgid "Plan Date"
+msgstr "计划时间"
+
+msgid "Topic Published"
+msgstr "是否发布"
+
+msgid "Tea Topic"
+msgstr "茶歇主题"
+
+msgid "No Topic is planed!"
+msgstr "没有计划主题！"
+
+msgid "Add New Topic"
+msgstr "提交新的主题"
+
+msgid "Submit Topic"
+msgstr "提交主题"
+
+msgid "Topic Proponent"
+msgstr "建议者"
+
+msgid "Is topic completed"
+msgstr "主题完成状态"
+
+msgid "Topic Completed"
+msgstr "已经结束"
+
+msgid "Topic Desc"
+msgstr "主题描述"

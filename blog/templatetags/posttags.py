@@ -83,7 +83,7 @@ register.inclusion_tag('blog/tags/childpages.html',
                          takes_context=True)(get_child_pages)
  
 
-def paginator(ol,querystr=''):
+def paginator(ol,tab=''):
     '''
     paginator tag
     @ol:        the Paginator page object
@@ -91,7 +91,7 @@ def paginator(ol,querystr=''):
     '''
     pag = ol.paginator
     page_range = [1,2,3,4,5,6,7,8,9,10]
-    if len(pag.page_range) >10:
+    if len(pag.page_range) > 10:
         if ol.number >= 10:
             page_range = [1,'...']
             end = ol.number+8            
@@ -104,5 +104,5 @@ def paginator(ol,querystr=''):
             
     else:
         page_range = pag.page_range
-    return {'ol':ol,'page_range':page_range,'querystr':querystr}
+    return {'ol':ol,'page_range':page_range,'tab':tab}
 register.inclusion_tag('paginator.html')(paginator)

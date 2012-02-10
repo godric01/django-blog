@@ -8,7 +8,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 def index(request):
     projects = Project.objects.all()
     
-    return render_to_response('todo/index.html',
+    return render_to_response('train/index.html',
                               {'projects':projects,
-                            'tab':'todo'})
-    #return HttpResponse('this a test task page')
+                            'tab':'train'})

@@ -1,0 +1,21 @@
+{% load i18n themes posttags filters %}
+{% theme_extends "base.html" %}
+{% block title %}{%trans "Tea"%} - {{ block.super }} {% endblock %}
+{% block script %}
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/todo.js" ></script>
+{% endblock %}
+{% block content %}
+    <div id="todo_projects" class="div_todo_projects">
+            {% for t in topics.object_list %}
+                <div>
+                    <h4>{{t.topic_name}}&nbsp;{%ifequal t.topic_completed 1 %}({% trans "Topic Completed" %}){% else %}{%if t.topic_plan%}({{t.topic_plan|date:"Y-m-d H:i"}}){%endif%}{%endifequal%}&nbsp;&nbsp;{{t.topic_publisher}}&nbsp;({% trans "Topic Proponent" %})
+                    <br/>
+                    <span class="topic_desc">{%if t.topic_desc%}{{t.topic_desc}}{%endif%}</span></h4>
+                </div>
+            {%endfor%}  
+            {% paginator topics tab%}
+    </div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
