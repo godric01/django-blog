@@ -8,27 +8,27 @@ from blog.models import Post
 admin.autodiscover()
 
 # Info for feeds.
-feed_dict = {    
+feed_dict = {
     'rss': feeds.RssLatestPosts,
     'atom': feeds.AtomLatestPosts,
 }
-info_dict = {    
+info_dict = {
     'queryset': Post.objects.all(),
     'date_field': 'pubdate',
 }
-urlpatterns = patterns('',                       
-    ('^admin/(.*)', admin.site.root),                                                  
-    url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img', name='validate_code'),  
+urlpatterns = patterns('',
+    ('^admin/(.*)', admin.site.root),
+    url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img', name='validate_code'),
 )
 
 # url for static
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.STATIC_PATH}),                    
+        {'document_root': settings.STATIC_PATH}),
     )
 #urls for wap
-urlpatterns += patterns('',                        
+urlpatterns += patterns('',
     (r'^wap/*',include('wap.urls')),
     #wap pre url
     url(r'wap','wap.views.index',name='wap_pre'),
@@ -43,8 +43,8 @@ urlpatterns += patterns('',
 )
 
 # url for filemanager
-urlpatterns += patterns('',                        
-    url(r'^filemanager/(?P<p>.*)$','filemanager.views.index',name='filemanager'),                        
+urlpatterns += patterns('',
+    url(r'^filemanager/(?P<p>.*)$','filemanager.views.index',name='filemanager'),
 )
 #urls for feeds
 urlpatterns += patterns('',
@@ -52,19 +52,19 @@ urlpatterns += patterns('',
     url(r'^rpc/$','blog.rpc.call',name='rpc'),
 )
 # urls for blog
-urlpatterns += patterns('blog.views',  
+urlpatterns += patterns('blog.views',
     (r'^$', 'index'),
     #tags
     url(r'^tags/$','tags',name='tags'),
-    url(r'^tags/(?P<tagname>.*)/$','tags',name='tagname'),                        
+    url(r'^tags/(?P<tagname>.*)/$','tags',name='tagname'),
     url(r'^(\d{4})/(\d{1,2})/(\d{1,2})/(?P<postname>[^/]+)/$','post',name='post_name'),
     #ajax
     url(r'^post/(?P<postid>(\d+))/comment$','post_comment',name='post_comment'),
     #url(r'^post/(?P<postid>(\d+))/comments', 'get_post_comments', name='ajax_post_comments'),
     #category view
     url(r'^category/(?P<catid>\d+)/$','categoryView',name="category_id"),
-    url(r'^category/(?P<catname>[^/]+)/$','categoryView',name="category_name"),                        
+    url(r'^category/(?P<catname>[^/]+)/$','categoryView',name="category_name"),
     (r'^(?P<year>\d{4})/(?P<month>(\d{1,2})?)/?(?P<date>(\d{1,2})?)/?$','dateposts'),
     url(r'^(?P<pagename>\w+)/$','page',name='page'),
-    url(r'^(.+?)(?P<pagename>\w+)/$','page',name='page'),                      
+    url(r'^(.+?)(?P<pagename>\w+)/$','page',name='page'),
 )

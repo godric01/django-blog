@@ -1,4 +1,5 @@
-#-*- coding:utf-8 -*-
+# -*- coding: UTF-8 -*-
+
 from os import path
 
 DEBUG = True
@@ -17,7 +18,7 @@ USE_I18N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = path.join(path.dirname(__file__),'media')
-ALLOW_FILE_TYPES = ('.jpg','.gif','.png','.flv')
+ALLOW_FILE_TYPES = ('.jpg','.gif','.png','.flv','pdf','pptx','ppt')
 # URL that handles the media served from MEDIA_URL.
 MEDIA_URL = '/media'
 

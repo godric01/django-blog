@@ -9,7 +9,7 @@
     <div id="todo_projects" class="div_todo_projects">
             {% for t in topics.object_list %}
                 <div>
-                    <h4>{{t.topic_name}}&nbsp;{%ifequal t.topic_completed 1 %}({% trans "Topic Completed" %}){% else %}{%if t.topic_plan%}({{t.topic_plan|date:"Y-m-d H:i"}}){%endif%}{%endifequal%}&nbsp;&nbsp;{{t.topic_publisher}}&nbsp;({% trans "Topic Proponent" %})
+                    <h4>{{t.topic_name}}&nbsp;{%ifequal t.topic_completed 1 %}({% trans "Topic Completed" %}){% else %}{%if t.topic_plan%}({{t.topic_plan|date:"Y-m-d H:i"}}){%endif%}{%endifequal%}&nbsp;&nbsp;<a href="mailto:{{t.topic_email}}">{{t.topic_publisher}}</a>&nbsp;({% trans "Topic Proponent" %})
                     <br/>
                     <span class="topic_desc">{%if t.topic_desc%}{{t.topic_desc}}{%endif%}</span></h4>
                 </div>
