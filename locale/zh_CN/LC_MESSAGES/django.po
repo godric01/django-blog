@@ -767,3 +767,21 @@ msgstr "已经结束"
 
 msgid "Topic Desc"
 msgstr "主题描述"
+
+msgid "Spec"
+msgstr "技术规范"
+
+msgid "Category Name"
+msgstr "类别"
+
+msgid "Category Specification"
+msgstr "规范类别"
+
+msgid "Spec Name"
+msgstr "规范名称"
+
+msgid "Spec URL"
+msgstr "规范URL"
+
+msgid "Tech Specification"
+msgstr "技术规范"

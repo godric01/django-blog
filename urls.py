@@ -42,6 +42,10 @@ urlpatterns += patterns('',
     (r'tea/*', include('tea.urls'))
 )
 
+urlpatterns += patterns('',
+    (r'spec/*', include('spec.urls'))
+)
+
 # url for filemanager
 urlpatterns += patterns('',
     url(r'^filemanager/(?P<p>.*)$','filemanager.views.index',name='filemanager'),

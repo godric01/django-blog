@@ -1,0 +1,27 @@
+{% load i18n themes filters %}
+{% theme_extends "base.html" %}
+{% block title %}{%trans "Spec"%} - {{ block.super }} {% endblock %}
+{% block script %}
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/todo.js" ></script>
+<link rel="stylesheet" href="{% theme_media_url %}/css/todo.css" type="text/css">
+{% endblock %}
+{% block content %}
+    <div id="todo_projects" class="div_todo_projects">
+        <ul class="todo_project">
+            {% for p in categorys %}
+            <li><h2>{{p.category_name}}</h2>
+                <ul class="todo_tasks">
+                    {% for t in p.spec_set.all %}
+                    --  {% if t.spec_blog_url %}<a href="{{ t.spec_blog_url }}"><span>{{ t.spec_name }}</span></a>
+                    {% else %}{{ t.spec_name }}{% endif %}                                            
+                    <br/>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}

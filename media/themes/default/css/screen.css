@@ -6,7 +6,7 @@ BODY {
 	
 }
 #container {
-	PADDING: 0px; MARGIN: 0px auto; WIDTH: 780px;
+	PADDING: 0px; MARGIN: 0px auto; WIDTH: 930px;
 }
 #content {
 	FLOAT: left; 	
@@ -77,7 +77,7 @@ A {
 	PADDING-LEFT: 24px; 
 	BACKGROUND: url(../images/secondary-top-content.gif) no-repeat 50% top; 
 	PADDING-BOTTOM: 10px; 
-	WIDTH: 520px; 
+	WIDTH: 640px; 
 	PADDING-TOP: 10px;
 	overflow:hidden;
 	MARGIN-TOP:16px;
@@ -129,7 +129,7 @@ color:#1E486C;
 }
 
 .byline {
-	FONT-SIZE: 0.9em; MARGIN: 0px; COLOR: #999; LINE-HEIGHT: 135%
+	FONT-SIZE: 0.9em; MARGIN: 10px; COLOR: #999; LINE-HEIGHT: 135%
 }
 
 #rightmenu {
