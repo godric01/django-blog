@@ -785,3 +785,28 @@ msgstr "规范URL"
 
 msgid "Tech Specification"
 msgstr "技术规范"
+
+msgid "Vote"
+msgstr "投票"
+
+msgid "Vote Title"
+msgstr "投票标题"
+
+msgid "Vote Approve"
+msgstr "投票赞成"
+
+msgid "Vote Disapprove"
+msgstr "投票不赞成"
+
+msgid "Vote Category"
+msgstr "投票类别"
+
+msgid "Vote IP"
+msgstr "投票IP"
+
+msgid "Vote Date"
+msgstr "投票日期"
+
+msgid "Vote Log"
+msgstr "投票日志"
+

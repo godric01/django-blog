@@ -17,7 +17,8 @@ info_dict = {
     'date_field': 'pubdate',
 }
 urlpatterns = patterns('',
-    ('^admin/(.*)', admin.site.root),
+    #('^admin/(.*)', admin.site.root),
+    ('^admin/', include(admin.site.urls)),
     url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img', name='validate_code'),
 )
 
@@ -44,6 +45,10 @@ urlpatterns += patterns('',
 
 urlpatterns += patterns('',
     (r'spec/*', include('spec.urls'))
+)
+
+urlpatterns += patterns('',
+    (r'vote/*', include('vote.urls'))
 )
 
 # url for filemanager

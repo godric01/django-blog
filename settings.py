@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'train',
     'tea',
     'spec',
+    'vote',
     'filemanager',
     'wap', 
     'django_evolution',

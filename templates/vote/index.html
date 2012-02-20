@@ -1,0 +1,163 @@
+﻿{% load i18n themes filters %}
+{% theme_extends "base.html" %}
+{% block title %}{%trans "Vote"%} - {{ block.super }} {% endblock %}
+{% block script %}                                                                                                      
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<style type="text/css">
+    .one_num
+    {
+        overflow: hidden;
+    }
+    .other_num
+    {
+        margin-top: 6px;
+        clear: both;
+    }
+    .one_num .num
+    {
+        background-color: Red;
+        float: left;
+        height: 18px;
+        display: block;
+    }
+    .other_num .num
+    {
+        background-color: Blue;
+        float: left;
+        height: 18px;
+        display: block;
+    }
+    .one_num .shuzi
+    {
+        color: #8d0a01;
+        float: right;
+    }
+    .other_num .shuzi
+    {
+        color: #003156;
+        float: right;
+    }
+    .piaoshu
+    {
+        width: 100%;
+        float: left;
+        margin: 0px 0px 0 0;
+        display: inline;
+    }
+    .vote_subject
+    {
+        width:90%;
+        margin: 10px 0px 0 0;
+    }
+    .vote_subject legend
+    {
+        font-size: 1.2em;
+        font-weight: bold;
+        COLOR: #1C5A8F;
+    }
+</style>
+<script type="text/javascript">
+    //计算图形显示比例
+    function votePercentShow(id) {
+        var s = parseInt($("#SquareVote_"+id).html());
+        var o = parseInt($("#OppositionVote_"+id).html());
+        var t1 = (s / (s + o)) * 480 < 1 ? 1 : (s / (s + o)) * 480;
+        var t2 = (o / (s + o)) * 480 < 1 ? 1 : (o / (s + o)) * 480;
+        $(".one_num #vote_approve_"+id).css("width", t1);
+        $(".other_num #vote_disapprove_"+id).css("width", t2);
+    }
+
+    //取正反投票数，然后投票成功后+1
+    function AddVote(id, t) {
+        var s = parseInt($("#SquareVote_"+id).html());
+        var o = parseInt($("#OppositionVote_"+id).html());
+        if (t == "1") {
+            $("#SquareVote_"+id).html(s + 1);
+        }
+        else {
+            $("#OppositionVote_"+id).html(o + 1);
+        }
+    }
+
+    //提交投票
+    function VoteSubmit(id, Type, t) {
+        //一：不记录数据
+        //AddVote(Type);
+        //votePercentShow();
+        //二：提交数据以便记录
+        t.value = "正在提交...";
+        t.disabled = true;
+        $.ajax({type: "POST", 
+                url: "vote/submit/", 
+                data: "id=" + id + "&type=" + Type + "",
+                success: function (msg) {
+                    if (msg == "ok") {
+                        alert("投票成功！");
+                        AddVote(id, Type);
+                        votePercentShow(id);
+                    }
+                    else if (msg == "ip") {
+                        alert("非常感谢！您已经投票！");
+                    }
+                    else if (msg == "error") 
+                    {
+                        alert("投票失败,稍后重试！"); }
+                        changeView();
+                        return;
+                    }
+                }
+            );
+
+        function changeView() {
+            t.value = "已投票";
+            t.disabled = true;
+        } 
+    }
+</script>
+{% endblock %}
+{% block content %}
+<div>
+    {% for c in categorys %}
+        <h2>{{c.category_name}}</h2>
+        {% for v in c.category_set.all %}
+        <div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    votePercentShow({{v.id}});
+                });
+            </script>
+
+            <fieldset class="vote_subject">
+                <legend>{{v.vote_title}}</legend>
+                <div class="piaoshu">
+                    <table width="100%">
+                        <tr width="100%">
+                            <td width="100%">
+                                <div class="one_num">
+                                    <span class="num" id="vote_approve_{{v.id}}"></span><span class="shuzi" id="SquareVote_{{v.id}}">{{v.vote_approve}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <input id="Button1" type="button" value="赞成" onclick="VoteSubmit('{{v.id}}','1',this);" />
+                            </td>
+                        </tr>
+                        <tr width="100%">
+                            <td width="100%">
+                                <div class="other_num">
+                                    <span class="num" id="vote_disapprove_{{v.id}}"></span><span class="shuzi" id="OppositionVote_{{v.id}}">{{v.vote_disapprove}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <input id="Button2" type="button" value="反对" onclick="VoteSubmit('{{v.id}}','0',this);" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
