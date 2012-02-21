@@ -88,7 +88,7 @@
         t.value = "正在提交...";
         t.disabled = true;
         $.ajax({type: "POST", 
-                url: "vote/submit/", 
+                url: "/vote/submit/", 
                 data: "id=" + id + "&type=" + Type + "",
                 success: function (msg) {
                     if (msg == "ok") {
