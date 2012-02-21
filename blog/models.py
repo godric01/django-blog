@@ -7,12 +7,12 @@ from django.core.urlresolvers import reverse
 
 
 #post types
-POST_TYPES = (    
+POST_TYPES = (
     ('post', _('Post')),
     ('page', _('Page')),
     )
 #post status
-POST_STATUS = (   
+POST_STATUS = (
     ('publish', _('Published')),
     ('draft', _('Draft')),
     ('private', _('Private')),
@@ -53,7 +53,7 @@ class Tags(models.Model):
                             help_text=_('Use as url'))
     reference_count = models.IntegerField(_('Reference count'),default=0,
                                           editable=False)
-    
+
     def save(self,*args, **kwargs):
         #override save
         if not self.slug:
@@ -62,20 +62,20 @@ class Tags(models.Model):
             self.slug = self.slug.replace(u'　','-')
             self.slug = self.slug.replace('.','')
         super(Tags,self).save(*args, **kwargs)
-    
+
     def __unicode__(self):
         return self.name
-    
-    def get_absolute_url(self): 
-        return reverse('tagname', kwargs={'tagname':self.slug})    
-    
+
+    def get_absolute_url(self):
+        return reverse('tagname', kwargs={'tagname':self.slug})
+
     class Meta:
         #ordering = ['-pubdate']
         verbose_name=_('Tag')
         verbose_name_plural = _('Tags')
 
 class Category(models.Model):
-    '''category entity'''    
+    '''category entity'''
     name = models.CharField(_('Name'),max_length=255,unique=True)
     desc = models.CharField(_('Description'),max_length=1024)
     enname = models.CharField(_('English name'),max_length=255,
@@ -83,31 +83,31 @@ class Category(models.Model):
     def save(self,*args, **kwargs):
         #override save
         if not self.enname:
-	    #replace the space of title
+        #replace the space of title
             self.enname = self.name.replace(' ','-')
             self.enname = self.enname.replace(u'　','-')
             self.enname = self.enname.replace('.','')
         super(Category,self).save(*args, **kwargs)
-        
+
     def __unicode__(self):
         return self.name
-    
+
     def get_absolute_url(self):
         if self.enname:
             return reverse('category_name', kwargs={'catname':self.enname})
         else:
             return reverse('category_id', kwargs={'catid':self.id})
-    
+
     class Meta:
         ordering=['name']
         verbose_name=_('Category')
         verbose_name_plural = _('Categories')
 
-class Post(models.Model):    
+class Post(models.Model):
     '''Post Entity'''
     title = models.CharField(_('Title'),max_length=255)
     #add markup field sql: ALTER TABLE blog_post ADD `markup` VARCHAR(64) NOT NULL DEFAULT 'html';
-    markup = models.CharField(_('Markup'),max_length=64,choices=MARKUP_LANGUAGE_CHOICES,default="html")  
+    markup = models.CharField(_('Markup'),max_length=64,choices=MARKUP_LANGUAGE_CHOICES,default="html")
     content = models.TextField(_('Content'))
     category = models.ManyToManyField(Category,null=True,blank=True,
                                       verbose_name=_('Category'))
@@ -130,7 +130,7 @@ class Post(models.Model):
     comment_count = models.IntegerField(_('Comment count'),default=0,editable=False)
     tags = models.ManyToManyField(Tags,null=True,blank=True,
                                   verbose_name=_('Tags'),related_name='post_set')
-    
+
     def save(self,*args, **kwargs):
         #override save
         if not self.post_name:
@@ -140,18 +140,18 @@ class Post(models.Model):
             self.post_name = self.post_name.replace('.','')
 
         super(Post,self).save(*args, **kwargs)
-    
+
     def __unicode__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         #if is page,return page url
         if self.post_type == POST_TYPES[1][0]:
-            if self.post_parent == None:                
+            if self.post_parent == None:
                 return reverse('page',args=[self.post_name])
-            else:                
+            else:
                 #child pages url join the parents url
-                from urlparse import urljoin            
+                from urlparse import urljoin
                 return urljoin(self.post_parent.get_absolute_url(), self.post_name + '/')
         else:
             if self.post_name:
@@ -164,7 +164,7 @@ class Post(models.Model):
                                           self.pubdate.month,
                                           self.pubdate.day,
                                           self.id])
-            
+
     def get_cat_str(self):
         '''return the categories string '''
         cats = self.category.all()
@@ -174,18 +174,18 @@ class Post(models.Model):
                 cat_strs += ','
             cat_strs += cat.name
         return cat_strs
-    get_cat_str.short_description = _('Post categories')    
- 
+    get_cat_str.short_description = _('Post categories')
+
     def get_comments(self):
         '''Get post or page approved comments'''
         comments = self.comments_set.filter(comment_approved__iexact=
-                                            COMMENT_APPROVE_STATUS[1][0]).order_by('id')       
+                                            COMMENT_APPROVE_STATUS[1][0]).order_by('id')
         return comments
-    
+
     class Meta:
         ordering = ['-pubdate']
         verbose_name=_('Post')
-        verbose_name_plural = _('Posts')    
+        verbose_name_plural = _('Posts')
 
 class Comments(models.Model):
     '''user comments'''
@@ -205,26 +205,26 @@ class Comments(models.Model):
     comment_agent = models.CharField(_('User agent info'),editable=False,
                                      max_length=255,null=True)
     user_id = models.IntegerField(_('UserId'),editable=False,null=True)
-    
-    def save(self,*args, **kwargs):                     
+
+    def save(self,*args, **kwargs):
         super(Comments,self).save(*args, **kwargs)
         #if comment is approved,update related post comment count
-        if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):          
+        if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
             self.post.comment_count = \
             self.post.comments_set.filter( \
             comment_approved__iexact=COMMENT_APPROVE_STATUS[1][0]).count()
-            self.post.save() 
-        
+            self.post.save()
+
     def __unicode__(self):
         return self.comment_author_email
-   
-    def get_absolute_url(self):        
+
+    def get_absolute_url(self):
         return self.post.get_absolute_url() + '#comment'
-    
+
     class Meta:
         ordering = ['-comment_date']
         verbose_name=_('Comment')
-        verbose_name_plural = _('Comments')   
+        verbose_name_plural = _('Comments')
 
 class Links(models.Model):
     '''Friend links entity'''
@@ -238,17 +238,17 @@ class Links(models.Model):
                                      help_text=_('Minimal at front'))
     link_updated = models.DateTimeField(_('Pubdate'),auto_now=True,
                                         editable=False)
-    
+
     def __unicode__(self):
         return self.link_title
-   
-    def get_absolute_url(self):        
+
+    def get_absolute_url(self):
         return self.link_url
-    
+
     class Meta:
         ordering = ['link_order']
         verbose_name=_('Link')
-        verbose_name_plural = _('Links')    
+        verbose_name_plural = _('Links')
 
 class Setting(models.Model):
     '''blog setting options'''
@@ -257,11 +257,11 @@ class Setting(models.Model):
     setting_value = models.CharField(_('SettingValue'),max_length=255, null=True, blank=True)
     setting_desc = models.CharField(_('Description'),null=True,blank=True,
                                  max_length=255)
-    
+
     def __unicode__(self):
-	return self.setting_name
-    
+        return self.setting_name
+
     class Meta:
-	verbose_name = _('Setting')
-	verbose_name_plural = _('Settings')
-	
+        verbose_name = _('Setting')
+        verbose_name_plural = _('Settings')
+

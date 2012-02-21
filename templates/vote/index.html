@@ -97,7 +97,7 @@
                         votePercentShow(id);
                     }
                     else if (msg == "ip") {
-                        alert("非常感谢！您已经投票！");
+                        alert("您已经投票！不能重复投票！");
                     }
                     else if (msg == "error") 
                     {
@@ -133,12 +133,19 @@
                     <table width="100%">
                         <tr width="100%">
                             <td width="100%">
+                                {{v.vote_content}}
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr width="100%">
+                            <td width="100%">
                                 <div class="one_num">
                                     <span class="num" id="vote_approve_{{v.id}}"></span><span class="shuzi" id="SquareVote_{{v.id}}">{{v.vote_approve}}</span>
                                 </div>
                             </td>
                             <td>
-                                <input id="Button1" type="button" value="赞成" onclick="VoteSubmit('{{v.id}}','1',this);" />
+                                <input id="Button1" type="button" value="感兴趣" onclick="VoteSubmit('{{v.id}}','1',this);" />
                             </td>
                         </tr>
                         <tr width="100%">
@@ -148,7 +155,7 @@
                                 </div>
                             </td>
                             <td>
-                                <input id="Button2" type="button" value="反对" onclick="VoteSubmit('{{v.id}}','0',this);" />
+                                <input id="Button2" type="button" value="不感兴趣" onclick="VoteSubmit('{{v.id}}','0',this);" />
                             </td>
                         </tr>
                     </table>

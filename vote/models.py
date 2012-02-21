@@ -17,6 +17,7 @@ class Category(models.Model):
 class Vote(models.Model):
     vote_title = models.CharField(_('Vote Title'),max_length=255)
     vote_category = models.ForeignKey(Category, related_name='category_set',verbose_name=_('Vote Category'),null=True,blank=True)
+    vote_content = models.TextField(verbose_name=_('Content'),null=True,blank=True,default='')
     vote_approve = models.IntegerField(_('Vote Approve'),default=0)
     vote_disapprove = models.IntegerField(_('Vote Disapprove'),default=0)
     vote_order = models.IntegerField(_('Order'),default=0, help_text=_('Minimal at front'))

@@ -1,4 +1,5 @@
-#coding=utf-8
+# -*- coding: UTF-8 -*-
+
 from django.template import Library
 from django.conf import settings
 from django.db.models.signals import post_save
@@ -15,18 +16,18 @@ def get_version():
     Returns the version as a human-format string.
     """
     v = '.'.join([str(i) for i in VERSION[:-1]])
-    if VERSION[-1]: 	   
+    if VERSION[-1]:
         v = '%s%s %s' % (v, VERSION[-1],get_svn_revision())
     return v
 
 def site_name():
-    '''site name'''    
+    '''site name'''
     sitename = get_setting_section('SiteName')
     if sitename:
         return sitename
     else:
-        return 'Pylogs'
-    
+        return 'myblog'
+
 def site_subtitle():
     '''
     get site subtitle
@@ -35,12 +36,12 @@ def site_subtitle():
     if subtitle:
         return subtitle
     else:
-        return 'Simple is beautiful...'
-    
+        return ''
+
 def theme():
     '''
     get site theme settings
-    '''    
+    '''
     return get_setting_section('Theme')
 
 def author_name():
@@ -52,8 +53,8 @@ def author_name():
     if author:
         return author
     else:
-        return 'Sky'
-    
+        return ''
+
 def site_description():
     '''
     get the site desctiption for html META element
@@ -62,8 +63,8 @@ def site_description():
     if desc:
         return desc
     else:
-        return 'Pylogs is a Django based blog system,project page:http://code.google.com/p/pylogs,demo site:http://oteam.cn Simple is beautiful...'
-        
+        return ''
+
 def site_keywords():
     '''
     get the site desctiption for html META element
@@ -72,8 +73,8 @@ def site_keywords():
     if keywords:
         return keywords
     else:
-        return 'Pylogs,blog,python,Django'
-    
+        return 'blog,python,Django'
+
 register.simple_tag(get_version)
 register.simple_tag(site_name)
 register.simple_tag(site_subtitle)
@@ -82,9 +83,9 @@ register.simple_tag(site_description)
 register.simple_tag(site_keywords)
 
 def get_setting_section(section):
-    if CONFIG_CACHE.has_key(section): 
+    if CONFIG_CACHE.has_key(section):
         return CONFIG_CACHE[section]
-    else:        
+    else:
         setting_object = Setting.objects.filter(setting_name__exact=section)
         if setting_object:
             CONFIG_CACHE[section] = setting_object[0].setting_value
@@ -92,12 +93,20 @@ def get_setting_section(section):
         else:
             return ''
 
+def get_nocache_setting_section(section):
+    setting_object = Setting.objects.filter(setting_name__exact=section)
+    if setting_object:
+        return setting_object
+    else:
+        return ''
+
 def update_config_cache(sender,instance,**kwargs):
     """
     update the CONFIG_CACHE value
-    """    
+    """
     key = instance.setting_name
-    if instance.setting_value:	
-	CONFIG_CACHE[key] = instance.setting_value
-	
+    if instance.setting_value:
+        CONFIG_CACHE[key] = instance.setting_value
+
 post_save.connect(update_config_cache, sender=Setting)
+
