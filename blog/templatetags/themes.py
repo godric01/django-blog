@@ -16,11 +16,11 @@ class ThemeExtendsNode(ExtendsNode):
         self.template_dirs = template_dirs
         #django 1.2beta need blocks
         self.blocks = dict([(n.name, n) for n in nodelist.get_nodes_by_type(BlockNode)])
-        
+
     def get_parent(self, context):
         if self.parent_name_expr:
             self.parent_name = self.parent_name_expr.resolve(context)
-        parent = theme_template_url() +'/'+ self.parent_name        
+        parent = theme_template_url() +'/'+ self.parent_name
         if not parent:
             error_msg = "Invalid template name in 'extends' tag: %r." % parent
             if self.parent_name_expr:
@@ -50,7 +50,7 @@ def do_theme_extends(parser,token):
         parent_name = bits[1][1:-1]
     else:
         parent_name_expr = parser.compile_filter(bits[1])
-    nodelist = parser.parse()    
+    nodelist = parser.parse()
     if nodelist.get_nodes_by_type(ExtendsNode):
         raise TemplateSyntaxError,"'%s' cannot appear more than once in the same template" % bits[0]
     return ThemeExtendsNode(nodelist,parent_name,parent_name_expr)
@@ -64,28 +64,28 @@ def get_theme_name():
     if theme_name:
         return theme_name
     else:
-        return 'default'   
+        return 'default'
 
 def media_url():
     """
     Returns the common media url
-    """    
+    """
     return getattr(settings,'MEDIA_URL','')
-    
+
 media_url = register.simple_tag(media_url)
 
 
 def theme_media_url():
     """
     Returns the themes media url
-    """   
+    """
     return media_url() + '/themes/'+ get_theme_name()
-    
+
 register.simple_tag(theme_media_url)
 
 def theme_template_url():
     """
     Returns the themes template url
     """
-    url = 'themes/'+ get_theme_name()    
+    url = 'themes/'+ get_theme_name()
     return url
