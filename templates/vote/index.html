@@ -119,6 +119,7 @@
 <div>
     {% for c in categorys %}
         <h2>{{c.category_name}}</h2>
+        <div>{{c.category_desc}}</div>
         {% for v in c.category_set.all %}
         <div>
             <script type="text/javascript">

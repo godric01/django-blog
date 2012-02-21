@@ -5,6 +5,7 @@ from django.db import models
 
 class Category(models.Model):
     category_name = models.CharField(_('Category Name'),max_length=255)
+    category_desc = models.TextField(verbose_name=_('Description'),null=True,blank=True,default='')
     category_order = models.IntegerField(_('Order'),default=0, help_text=_('Minimal at front'))
 
     def __unicode__(self):
