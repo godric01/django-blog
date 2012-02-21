@@ -26,7 +26,7 @@ class Vote(models.Model):
         return self.vote_title
 
     class Meta:
-        ordering = ['-vote_order']
+        ordering = ['vote_order']
         verbose_name = verbose_name_plural =_('Vote')
 
 
