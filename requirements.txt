@@ -1,4 +1,5 @@
 Django==1.2.7
 PIL
 Pillow
+south
 django_evolution

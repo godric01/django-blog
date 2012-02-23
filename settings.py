@@ -47,6 +47,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+    'blog.middleware.SQLViewMiddleware',
   #  'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
@@ -69,4 +70,5 @@ INSTALLED_APPS = (
     'filemanager',
     'wap', 
     'django_evolution',
+    'south',
 )

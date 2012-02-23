@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#coding=utf-8
+# -*- coding: UTF-8 -*-
 #html utility methods
 import re
 r = re.compile(r'\b(([A-Z]+[a-z]+){2,})\b')

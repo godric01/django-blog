@@ -1,4 +1,4 @@
-#coding=utf-8
+# -*- coding: UTF-8 -*-
 from threading import Thread
 
 from django.core.mail import send_mail, EmailMessage

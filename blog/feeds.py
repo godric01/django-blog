@@ -1,4 +1,4 @@
-#coding=utf-8
+# -*- coding: UTF-8 -*-
 import urlparse
 
 from django.utils.translation import ugettext as _

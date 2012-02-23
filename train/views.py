@@ -1,4 +1,4 @@
-#coding=utf-8
+# -*- coding: UTF-8 -*-
 from django.utils.translation import ugettext as _
 from train.models import Project,Task
 from django.http import HttpResponse,HttpResponseRedirect,Http404
