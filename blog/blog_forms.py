@@ -1,10 +1,9 @@
-#!/us/bin/env python
 # -*- coding: UTF-8 -*-
-fom django impot foms
-textaea_atts = { 'class': 'textbox textaea' }
-class CommentFom(foms.Fom):
-    comment_autho = foms.ChaField(max_length=32)
-    comment_autho_email = foms.EmailField()
-    comment_autho_ul = foms.URLField(equied=False)
-    comment_content = foms.ChaField(widget=foms.Textaea(atts=textaea_atts),
+from django import forms
+textarea_attrs = { 'class': 'textbox textarea' }
+class CommentForm(forms.Form):
+    comment_author = forms.CharField(max_length=32)
+    comment_author_email = forms.EmailField()
+    comment_author_ul = forms.URLField(required=False)
+    comment_content = forms.CharField(widget=forms.Textarea(attrs=textarea_attrs),
                                       max_length=1024)
